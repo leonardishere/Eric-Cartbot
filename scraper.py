@@ -1,7 +1,10 @@
+# scraper.py was built to scrape the southpark fandom website and output the script of every episode of every season
+
 import requests
 from bs4 import BeautifulSoup as bs
 import os
 import re
+from helper import clean_to_file, clean_url
 
 base_url = 'https://southpark.fandom.com'
 
@@ -17,6 +20,7 @@ file_out = 'everybody_anonymous.dat'
 #file_out = 'everybody.dat'
 
 # scrapes the links from a given url
+# not all the links, just ones that we want
 def get_out_links(url):
     main_page = requests.get(url)
     main_soup = bs(main_page.text, 'html.parser')
@@ -42,8 +46,6 @@ def write_content_to_file(url, f):
             person = row.contents[1].span.center.string.strip()
             line = row.contents[2].span.string.strip().replace('\n', ' ')
             if get_everybody:
-                #s = clean(person + ': ' + line) + '\n'
-                #s = (clean(line) if anonymous else clean(person + ': ' + line)) + '\n'
                 s = line if anonymous else (person + ': ' + line)
                 s = clean_to_file(s) + '\n'
                 f.write(s)
@@ -55,28 +57,6 @@ def write_content_to_file(url, f):
             pass
         except UnicodeEncodeError:
             print('UnicodeEncodeError at line number: ' + str(i))
-
-# cleans a string so that it can be written to file without a UnicodeEncodeError
-def clean_to_file(s):
-    s = s.encode('ascii', 'ignore').decode('utf-8') # deletes bad stuff?
-    s = re.sub(r'\s+', ' ', s) # convert all groups of whitespace to single space
-    return s
-
-# cleans a url, at least makes it look better
-def clean_url(url):
-    # theres definitely better ways to do this but whatever
-    url = (url
-        .replace('https://southpark.fandom.com/wiki/Portal:Scripts/', '')
-        .replace('https://southpark.fandom.com/wiki/', '')
-        .replace('/Script', '')
-        .replace('_', ' ')
-        .replace('%27', "'")
-        .replace('%3F', '?')
-        .replace('%26', '&')
-        .replace('%C3%A8', 'e')#'è')
-        .replace('%25', '%')
-    )
-    return url
 
 # main function
 def main():
