@@ -1,5 +1,5 @@
 # Eric Cartbot
-![Awesomo](https://raw.githubusercontent.com/leonardishere/Eric-Cartbot/master/pfp_awesomo.jpg)  
+![Awesomo](https://raw.githubusercontent.com/leonardishere/Eric-Cartbot/master/pfp_awesomo.png)  
 Eric Cartbot, is a Twitter Bot that tweets in the style of Eric Cartman.  
 The twitter account, @defnotan (short for Defnotan Androyd), can be found [here](https://twitter.com/defnotan). For those that don't understand the reference of the profile picture, "AWESOM-O" is the fifth episode of Season Eight in which Cartman disguises himself as a robot.
 
