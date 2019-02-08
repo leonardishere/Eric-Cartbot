@@ -1,4 +1,4 @@
-# generate_and_tweet.py will generate random tweets and tweet them indefinitely
+# generate_and_tweet_inf.py will generate random tweets and tweet them indefinitely
 # note: because of the whole time.sleep() thread blocking issue, none of the print statements will actually print
 
 try:
