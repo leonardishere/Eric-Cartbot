@@ -1,4 +1,5 @@
 # tweet_from_file.py will tweet the contents of a file line by line
+# the file was created with an rnn
 
 debug = True
 if debug:

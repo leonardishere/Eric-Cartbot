@@ -6,7 +6,8 @@ The twitter account, @defnotan (short for Defnotan Androyd), can be found [here]
 ### Libraries used:
 * [requests](http://docs.python-requests.org/en/master/) (to download the Southpark script)
 * [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/) (to scrape the Southpark script)
-* [textgenrnn](https://github.com/minimaxir/textgenrnn) (to train the model and generate text)  
+* [markovify](https://github.com/jsvine/markovify) (to train the markov model and generate text)
+* [textgenrnn](https://github.com/minimaxir/textgenrnn) (to train the rnn model and generate text)  
     * textgenrnn is built off of [tensorflow](https://www.tensorflow.org/) and [keras](https://keras.io/)
 * [tweepy](http://www.tweepy.org/) (to tweet)
 
@@ -16,8 +17,11 @@ Thanks to all developers of these libraries and all libraries that they're built
 + Sign up for a [Twitter developer](https://developer.twitter.com/) account
 + Edit [keys_changeme.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/keys_changeme.py)
 + Scrape some data using [scraper.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/scraper.py) as a reference
-+ Use the Colaboratory notebook from [textgenrnn](https://github.com/minimaxir/textgenrnn) to generate a model
-+ Edit [generate_and_tweet_once.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/generate_and_tweet_once.py) and [generate_and_tweet_inf.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/generate_and_tweet_inf.py) to use the new model
++ If using markovify:
+  + Edit [generate_and_tweet_once_markov.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/generate_and_tweet_once_markov.py) and [generate_and_tweet_inf_markov.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/generate_and_tweet_inf_markov.py) to use the new model
++ If using rnns:
+  + Use the Colaboratory notebook from [textgenrnn](https://github.com/minimaxir/textgenrnn) to generate a model
+  + Edit [generate_and_tweet_once.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/generate_and_tweet_once_rnn.py) and [generate_and_tweet_inf.py](https://github.com/leonardishere/Eric-Cartbot/blob/master/generate_and_tweet_inf_rnn.py) to use the new model
 + Tweet tweet
 
 ### Legal
