@@ -1,5 +1,7 @@
 # helper.py contains a set of functions are helpful in other areas, but dont have a home
 
+import re
+
 # cleans a string so that it can be written to file without a UnicodeEncodeError
 def clean_to_file(s):
     s = s.encode('ascii', 'ignore').decode('utf-8') # deletes bad stuff?

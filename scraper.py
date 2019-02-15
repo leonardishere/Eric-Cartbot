@@ -10,10 +10,15 @@ base_url = 'https://southpark.fandom.com'
 
 # config params
 
-get_everybody = True
-get_person = 'not used'
+get_everybody = False
+get_person = 'Cartman'
 anonymous = True
-file_out = 'everybody_anonymous.dat'
+file_out = 'dont care.dat'
+
+# get_everybody = True
+# get_person = 'not used'
+# anonymous = True
+# file_out = 'everybody_anonymous.dat'
 
 #get_everybody = True
 #get_person = 'not used'
@@ -39,6 +44,7 @@ def write_content_to_file(url, f):
     soup = bs(page.text, 'html.parser')
     table = soup.select('table')[1]
     rows = table.find_all('tr')
+    num_lines_scraped = 0
     # loop across rows with data
     for i in range(2, len(rows)-1):
         try:
@@ -49,14 +55,17 @@ def write_content_to_file(url, f):
                 s = line if anonymous else (person + ': ' + line)
                 s = clean_to_file(s) + '\n'
                 f.write(s)
+                num_lines_scraped = num_lines_scraped + 1
             else:
                 if person == get_person:
                     s = clean_to_file(line) + '\n'
                     f.write(s)
+                    num_lines_scraped = num_lines_scraped + 1
         except AttributeError:
             pass
         except UnicodeEncodeError:
             print('UnicodeEncodeError at line number: ' + str(i))
+    print('num lines: {}'.format(num_lines_scraped))
 
 # main function
 def main():
